@@ -1,20 +1,24 @@
-using System.Reflection.Metadata.Ecma335;
 using Microsoft.AspNetCore.Mvc;
-using WebApplication1.Models;
+using WebApplication1.Infrastructure;
 
 namespace WebApplication1.Controllers;
 
 public class GameController : Controller
 {
+    private GameRepository _GameRepo = new GameRepository();
+
     public IActionResult Games()
     {
-        return View(new GameLibraryModel());
+        return View(_GameRepo.Get());
     }
 
     public IActionResult Details(int id)
     {
-        var library = new GameLibraryModel();
+        return View(_GameRepo.Get(id));
+    }
 
-        return View(library.Games.FirstOrDefault((iGame) => { return iGame != null && iGame.Id == id; }, null));
+    public IActionResult Add()
+    {
+        return View();
     }
 }
