@@ -1,0 +1,14 @@
+@model List<GamesModel>
+
+@{
+    ViewData["Title"] = "Games";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome to Games</h1>
+    @foreach (var game in Model)
+    {
+        <p>@game.GameName</p>
+    }
+    
+</div>
