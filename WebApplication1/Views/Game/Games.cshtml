@@ -3,11 +3,19 @@
 @{
     ViewData["Title"] = "Games";
 }
+<div class="card-deck row row-cols-3">
 
-<div class="text-center">
-    <h1 class="display-4">Welcome to Games</h1>
     @foreach (var game in Model.Games)
     {
-        <a href="Details/@game.Id">@game.Name</a>
+        <div class="card text-center">
+            <img src="@game.ImageLink" class="card-img-top img-fluid" style="max-height: 200px; width: auto" alt="">
+            <div class="card-body">
+                <h5 class="card-title">@game.Name</h5>
+                <p class="card-text">@game.Description</p>
+                <a href="Details/@game.Id" class="btn btn-primary">More on @game.Name !</a>
+                @* asp-area="" asp-controller="Game" asp-action="Games" *@
+            </div>
+        </div>
     }
+
 </div>
