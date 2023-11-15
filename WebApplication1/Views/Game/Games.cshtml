@@ -1,4 +1,4 @@
-@model List<GamesModel>
+@model GameLibraryModel
 
 @{
     ViewData["Title"] = "Games";
@@ -6,9 +6,8 @@
 
 <div class="text-center">
     <h1 class="display-4">Welcome to Games</h1>
-    @foreach (var game in Model)
+    @foreach (var game in Model.Games)
     {
-        <p>@game.GameName</p>
+        <a href="Details/@game.Id">@game.Name</a>
     }
-    
 </div>
