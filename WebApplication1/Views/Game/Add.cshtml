@@ -1,5 +1,20 @@
-
+@model GameModel
 
 @{
     ViewData["Title"] = "Add Game to Library";
+}
+
+@using (Html.BeginForm("Add", "Game", FormMethod.Post))
+{
+    <label>Game Title: @Html.TextBoxFor(m => m.Name)</label>
+
+    <br />
+    <label>Enter Your Age: @Html.TextBoxFor(m => m.Description)</label>
+
+    <br />
+    <label>Provide a link for the vignette: @Html.TextBoxFor(m => m.ImageLink)</label>
+
+    <br />
+
+    <button id="Submit" type="submit" class="btn btn-primary">Submit</button>
 }

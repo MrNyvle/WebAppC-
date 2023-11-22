@@ -1,10 +1,25 @@
 @model GameModel
 
-@{
-    ViewData["Title"] = Model.Name;
-}
+@if (Model is null)
+{
+    ViewData["Title"] = "No such game found";
 
-<div class="text-center">
-    <h1 class="display-4">@Model.Name</h1>
-    <p>@Model.Description</p>
-</div>
+    <div class="text-center">
+        <h1 class="display-4">Nothing to see here</h1>
+        <p>Get out</p>
+    </div>
+}
+else
+{
+    ViewData["Title"] = Model.Name;
+
+    <div class="text-center">
+        <h1 class="display-4">@Model.Name</h1>
+        <p>@Model.Description</p>
+    </div>
+
+    @using (Html.BeginForm("Delete", "Game", new { id = Model.Id }, FormMethod.Post))
+    {
+        <button class="btn btn-danger" id="Submit" type="submit">DELETE</button>
+    }
+}
