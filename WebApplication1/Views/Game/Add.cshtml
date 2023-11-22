@@ -6,13 +6,13 @@
 
 @using (Html.BeginForm("Add", "Game", FormMethod.Post))
 {
-    <label>Game Title: @Html.TextBoxFor(m => m.Name)</label>
+    <label>Game title: @Html.TextBoxFor(m => m.Name)</label>
 
     <br />
-    <label>Enter Your Age: @Html.TextBoxFor(m => m.Description)</label>
+    <label>Enter game description: @Html.TextBoxFor(m => m.Description)</label>
 
     <br />
-    <label>Provide a link for the vignette: @Html.TextBoxFor(m => m.ImageLink)</label>
+    <label>Provide vignette link: @Html.TextBoxFor(m => m.ImageLink)</label>
 
     <br />
 

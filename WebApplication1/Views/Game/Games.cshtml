@@ -3,6 +3,43 @@
 @{
     ViewData["Title"] = "Games";
 }
+
+
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<!-- Popper.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.10.2/umd/popper.min.js"></script>
+<!-- Bootstrap JS -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!-- Carrousel de jeux -->
+<div id="gameCarousel" class="carousel slide" data-ride="carousel" style="height: 300px; display: flex; align-items: center">
+    <div class="carousel-inner">
+        @{
+            bool firstItem = true;
+            foreach (var game in Model.ToList())
+            {
+                <div class="carousel-item @(firstItem ? "active" : "")">
+                    <img src="@game.ImageLink" class="d-block w-25 mx-auto" alt="@game.Name">
+                    <div class="carousel-caption d-none d-md-block">
+                       
+                    </div>
+                </div>
+                firstItem = false;
+            }
+        }
+    </div>
+    <a class="carousel-control-prev" href="#gameCarousel" role="button" data-slide="prev" style="color: black !important">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#gameCarousel" role="button" data-slide="next" style="color: black !important">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>
+
+
 <div class="card-deck row row-cols-3">
 
     @foreach (var game in Model)
